@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% block content %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                $("#downloading_msg").hide();
+                {#                $("#download_btn").click(function () {#}
+                {#                    $("#downloading_msg").show()#}
+                {#                    $.ajax({#}
+                {#                        url: "{% url 'run_script' %}",#}
+                {#                        type: "POST",#}
+                {#                        data: {'csrfmiddlewaretoken': ''},#}
+                {#                        success: function (response) {#}
+                {#                            location.reload();#}
+                {#                        },#}
+                {#                        error: function (xhr, status, error) {#}
+                {##}
+                {#                        }#}
+                {#                    });#}
+                {#                });#}
+            });
+        </script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+        <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript" language="javascript"
+                src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" class="init">
+
+
+            $(document).ready(function () {
+                var groupColumn = 2;
+                var table = $('#example').DataTable({
+                    "columnDefs": [
+                        {"visible": false, "targets": groupColumn}
+                    ],
+                    "order": [[groupColumn, 'asc']],
+                    "displayLength": 25,
+                    "drawCallback": function (settings) {
+                        var api = this.api();
+                        var rows = api.rows({page: 'current'}).nodes();
+                        var last = null;
+
+                        api.column(groupColumn, {page: 'current'}).data().each(function (group, i) {
+                            if (last !== group) {
+                                if (group.includes("quantity_0")) {
+                                    $(rows).eq(i).before(
+                                        '<tr class="group"><td colspan="5" class="quantity_0">' + group + '</td></tr>'
+                                    );
+                                }
+                                else {
+                                    $(rows).eq(i).before(
+                                        '<tr class="group"><td colspan="5">' + group + '</td></tr>'
+                                    );
+                                }
+                                last = group;
+                            }
+                        });
+                    }
+                });
+
+                // Order by the grouping
+                // $('#example tbody').on('click', 'tr.group', function () {
+                //     var currentOrder = table.order()[0];
+                //     if (currentOrder[0] === groupColumn && currentOrder[1] === 'asc') {
+                //         table.order([groupColumn, 'desc']).draw();
+                //     }
+                //     else {
+                //         table.order([groupColumn, 'asc']).draw();
+                //     }
+                // });
+
+                // $('#visit').on('change', function () {
+                //     if ($(this).prop('checked')) {
+                //         $('.quantity_0').hide()
+                //     }
+                //     else {
+                //         $('.quantity_0').show()
+                //     }
+                // });
+            });
+
+
+        </script>
+    </head>
+    <div id="container">
+        <div align="center">
+            {#            <input type="button" id="download_btn" name="Download" value="Run Script">#}
+            <h4 id="downloading_msg">Check the console output script is running..</h4>
+            <br>
+        </div>
+        <div class="box">
+            <input type="checkbox" name="visit" id="visit"/> <label for="visit">Hide zero quantity items</label>
+            <table id="example" class="display">
+                <thead>
+                <tr>
+                    <th>Case</th>
+                    <th>Time</th>
+                    <th>UPC</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <!-- {% for product in product_list %} -->
+                    <!-- <tr class="quantity_{{ product.quantity }}"> -->
+                        <tr class="quantity_{{ product.quantity }}"> 
+                        <td>{{ product.store_address }}</td>
+                        <td>{{ product.store_number }}</td>
+                        <!-- <td>alpha</td>
+                        <td>2</td>
+                        <td>25</td>
+                        <td>abc</td> -->
+
+                        <td>
+                            <a class="quantity_{{ product.quantity }}"
+                               href="upc_details/{{ product.upc_number }}/{{ product.store_number }}"/>{{ product.upc_number }}
+                        </td>
+                        <td>
+                            <div class="left" style="font-size:20px">{{ product.name }}</div>
+                        </td>
+                        <td>${{ product.price }}</td>
+                        <td>{{ product.quantity }}</td>
+
+                    </tr>
+                    
+                {% endfor %}
+
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>Store</th>
+                    <th>UPC</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+{% endblock %}

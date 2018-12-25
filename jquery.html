@@ -1,0 +1,49 @@
+<html>
+    <script>$(document).ready(function() {
+            $('#example').DataTable({
+          
+              "ordering": true,
+              columnDefs: [{
+                orderable: false,
+                targets: "no-sort"
+              }]
+          
+            });
+          });
+          </script>
+    <body>
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th class="no-sort">Name</th>
+                <th>Position</th>
+                <th class="no-sort">Office</th>
+                <th class="no-sort">Age</th>
+                <th class="no-sort">Start date</th>
+                <th class="no-sort">Salary</th>
+            </tr>
+            <tbody>
+                    <tr>
+                    <td>Talha</td>
+                    <td>ali</td>
+                    <td>Doe</td>
+                    <td>joe</td>
+                    <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>Doe</td>
+                    <td>Doe</td>
+                    </tr>
+                    
+                    <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>Doe</td>
+                    <td>Doe</td>
+    
+                    </tr>
+                </tbody>
+        </thead>
+     </table>
+     </body>
+    </html>

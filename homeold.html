@@ -1,0 +1,205 @@
+{% block content %}
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#downloading_msg").hide();
+                $("#download_btn").click(function () {
+                    $("#downloading_msg").show();
+                    $.ajax({
+                        url: "{% url 'run_script' %}",
+                        type: "POST",
+                        data: {'csrfmiddlewaretoken': ''},
+                        success: function (response) {
+                            location.reload();
+                        },
+                        error: function (xhr, status, error) {
+
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <style>
+            .list {
+                font-family: sans-serif;
+
+                padding: 20px 0 0;
+
+                height: auto;
+
+            }
+
+            .list > li {
+
+                display: block;
+                background-color: #eee;
+                padding: 20px;
+                box-shadow: inset 0 1px 0 #fff;
+            }
+
+            .avatar {
+                max-width: 150px;
+            }
+
+            img {
+                width: 12%;
+                height: 12%;
+                float: right;
+                margin: 0;
+                padding: 0;
+
+            }
+
+            h3 {
+                font-size: 16px;
+                margin: 0 0 0.3rem;
+                font-weight: normal;
+                font-weight: bold;
+                float: left;
+            }
+
+            p {
+                float: left;
+                margin: 0;
+                padding: 0;
+                width: auto;
+                height: auto;
+
+            }
+
+            input {
+                border: solid 1px #ccc;
+                border-radius: 5px;
+                padding: 7px 14px;
+                margin-bottom: 10px
+            }
+
+            input:focus {
+                outline: none;
+                border-color: #aaa;
+            }
+
+            .sort {
+                padding: 8px 30px;
+                border-radius: 6px;
+                border: none;
+                display: inline-block;
+                color: #fff;
+                text-decoration: none;
+                background-color: #28a8e0;
+                height: 30px;
+            }
+
+            .sort:hover {
+                text-decoration: none;
+                background-color: #1b8aba;
+            }
+
+            .sort:focus {
+                outline: none;
+            }
+
+            .sort:after {
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                content: "";
+                position: relative;
+                top: -10px;
+                right: -5px;
+            }
+
+            .sort.asc:after {
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid #fff;
+                content: "";
+                position: relative;
+                top: 13px;
+                right: -5px;
+            }
+
+            .sort.desc:after {
+                width: 0;
+                height: 0;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-bottom: 5px solid #fff;
+                content: "";
+                position: relative;
+                top: -10px;
+                right: -5px;
+            }
+
+
+        </style>
+    </head>
+    <div align="center">
+        <input type="button" id="download_btn" name="Download" value="Run Script">
+        <h4 id="downloading_msg">Check the console output script is running..</h4>
+        <br>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+    <div id="users">
+        <input class="search" placeholder="Search"/>
+        <button class="sort" data-sort="name">
+            Sort by name
+        </button>
+        <button class="sort" data-sort="price">
+            Sort by price
+        </button>
+        <button class="sort" data-sort="store">
+            Sort by store
+        </button>
+        <button class="sort" data-sort="upc">
+            Sort by UPC
+        </button>
+
+
+        <ul class="list">
+
+            {% for product in product_list %}
+
+                {% ifchanged product.name %}
+                    </li>
+
+                    <li>
+                    <h3 class="name">{{ product.name }}</h3>
+                    <p class="upc">&nbspUPC: {{ product.upc_number }}</p><br>
+
+                {% endifchanged %}
+                <br>
+                <p class="store">Store: {{ product.store_number }} &nbsp</p>
+                <p class="price">Price: ${{ product.price }}&nbsp</p>
+                <p class="quantity">Quantity: {{ product.quantity }}</p><br>
+                {% ifchanged product.upc_number %}
+
+                {% endifchanged %}
+
+            {% endfor %}
+        </ul>
+
+
+    </div>
+
+    <script>
+        var options = {
+            valueNames: ['name', 'upc', 'price', 'store', 'quantity']
+        };
+
+        var values;
+
+        var userList = new List('users', options, values);
+
+
+        //# sourceURL=pen.js
+    </script>
+{% endblock %}

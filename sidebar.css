@@ -1,0 +1,53 @@
+
+body{
+    background: gray;
+}
+
+div.container_1 {
+    width: 66%;
+    height:60% ;
+    margin-left:15% ;
+    margin-top: 8%;
+    /* border: 3px solid black; */
+    position: absolute;
+    /* background: green; */
+    
+} 
+
+.wrapper {
+    display: flex;
+    width: 10%;
+    height: 10%;
+    margin-bottom:100%;
+    position:absolute;  
+    padding-left:6%;
+    padding-top: 4%
+}
+
+/* .data{
+    width: 100px; 
+    border: 2px solid black; 
+    padding: 5px;
+    margin-left:30%; 
+    position: absolute;
+
+}  */
+
+.search-container
+{
+    position: static;  
+    width: 75%;
+    margin-left: 15%;  
+    position: absolute;
+    margin-top:4%; 
+}
+
+.Search
+{
+    width: 88%;
+}
+
+
+
+
+

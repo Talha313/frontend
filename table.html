@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>My Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
+    <link rel="stylesheet" type="text/css" href="search.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <!-- modal  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  class="init">
+        $(document).ready(function () {
+            var table=$('#datatable').DataTable({searching: false, paging: true, info: true}
+            
+           )
+
+  
+  
+} );
+    </script>
+</head>
+<body>
+    <div>
+        <!-- <div class="search-container">
+                <form>
+                    <input  class="Search" type="text" placeholder="Search Here..." name="search">
+                    <button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                    <span class="glyphicon glyphicon-search"></span>
+                    
+    
+                </form>
+        </div> -->
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group" id="adv-search">
+                        <input type="text" class="form-control" placeholder="Search for snippets" />
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <div class="dropdown dropdown-lg">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <form class="form-horizontal" role="form">
+                                          <div class="form-group">
+                                            <label for="filter">File Type</label>
+                                            <input class="form-control" type="text" />
+                                            <!-- <select class="form-control">
+                                                <option value="0" selected>All Snippets</option>
+                                                <option value="1">Featured</option>
+                                                <option value="2">Most popular</option>
+                                                <option value="3">Top rated</option>
+                                                <option value="4">Most commented</option>
+                                            </select> -->
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain"></label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">File Name</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Case</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Owner</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Date</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container_1" >
+                <form id="form1" runat="server">
+                        <div class="data" >
+                            <table id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>CASE
+                                        </th>
+                                        <th>Time
+                                        </th>
+                                        <th>Date
+                                        </th>
+                                        <th>Description
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Montería</td>
+                                        <td>Colombia</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Birmingham</td>
+                                        <td>United Kingdom</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Bangalore</td>
+                                        <td>India</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Tokyo</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Kuala Lumpur</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Rio de Janeiro</td>
+                                        <td>Brazil</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Ipoh</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Tawau</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hiroshima</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Cannes</td>
+                                        <td>France</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>London</td>
+                                        <td>United Kingdom</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Saku</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>13</td>
+                                        <td>Nice</td>
+                                        <td>France</td>
+                                        <td>Europe</td>
+                                    </tr>
+                
+                                    <tr>
+                                        <td>14</td>
+                                        <td>Manchester</td>
+                                        <td>United Kingdom</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15</td>
+                                        <td>Salvador</td>
+                                        <td>Brazil</td>
+                                        <td>South America</td>
+                                    </tr>
+                
+                                    <tr>
+                                        <td>16</td>
+                                        <td>Cali</td>
+                                        <td>Colombia</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>17</td>
+                                        <td>Chennai</td>
+                                        <td>India</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>18</td>
+                                        <td>Brasília</td>
+                                        <td>Brazil</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>19</td>
+                                        <td>Mumbai</td>
+                                        <td>India</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20</td>
+                                        <td>Paris</td>
+                                        <td>France</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>21</td>
+                                        <td>Bello</td>
+                                        <td>Colombia</td>
+                                        <td>South America</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>    
+            
+        </div>  
+
+        <div class="wrapper" >
+
+                <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    <p>Data</p>
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
+                        <ul class="collapse list-unstyled" id="homeSubmenu">
+                            <li>
+                                <a href="#">Home 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Home 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">About</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li>
+                                <a href="#">Page 1</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 2</a>
+                            </li>
+                            <li>
+                                <a href="#">Page 3</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Portfolio</a>
+                    </li>
+                    <li>
+                    <a href="#">Contact</a>
+                    </li>
+                </ul>
+
+            </nav>
+        </div>
+    
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Advance Search</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+            
+            <form>
+                    <div class="form-group row">
+                      <label for="staticEmail" class="col-sm-2 col-form-label">File Type</label>
+                      <div class="col-sm-10">
+                        <input type="text"  class="form-control" id="staticEmail">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label for="inputPassword" class="col-sm-2 col-form-label">File Name</label>
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputPassword" placeholder="Password">
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Case</label>
+                            <div class="col-sm-10">
+                              <input type="text" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                          </div>
+                    <div class="form-group row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Owner</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Date</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                        </div>
+                  </form>
+
+          </div>
+          <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Search</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+
+</body>
+</html> 
