@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+
+    <title>My Table</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="sidebar.css">
+    <link rel="stylesheet" type="text/css" href="search.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
+    <!-- modal  -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <!-- font awesome -->
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript"  class="init">
+        $(document).ready(function () {
+            var table=$('#datatable').DataTable({searching: false, paging: true, info: true}
+            
+           )
+
+  
+  
+} );
+    </script>
+
+
+</head>
+<body>
+    <div>
+        <!-- <div class="search-container">
+                <form>
+                    <input  class="Search" type="text" placeholder="Search Here..." name="search">
+                    <button type="button" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                    <span class="glyphicon glyphicon-search"></span>
+                    
+    
+                </form>
+        </div>  -->
+
+        
+         <div style="margin-left:93%; margin-top:0%; padding: auto ;position:absolute; width:4%  " onclick="openForm()" ondblclick="closeForm()">
+                <i  class='fas fa-user-circle' onclick="openForm()"  ondblclick="closeForm()" style='font-size:36px '></i>
+
+                
+
+            </div>
+    
+        <div class="container  >
+
+                
+            <div class="row">
+                <div class="col-md-12">
+
+
+                    <div class="input-group" id="adv-search">
+                        <input type="text" class="form-control" placeholder="Search for snippets" />
+                        <div class="input-group-btn">
+                            <div class="btn-group" role="group">
+                                <div class="dropdown dropdown-lg">
+                                            
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <form class="form-horizontal" role="form">
+                                          <div class="form-group">
+                                            <label for="filter">File Type</label>
+                                            <input class="form-control" type="text" />
+                                
+
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">File Name</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Case</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Owner</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="contain">Date</label>
+                                            <input class="form-control" type="text" />
+                                          </div>
+                                          <button type="submit" style="text-align:center; right: 50%" class="btn btn-primary" value="Advance Search"> Advance Search &nbsp;<span class="glyphicon glyphicon-search" aria-hidden="true" ></span></button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary" ><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            </div>
+         
+                    
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+     
+    
+
+
+        <div class="container_1" >
+                <form id="form1" runat="server">
+                        <div class="data" >
+                            <table id="datatable">
+                                <thead>
+                                    <tr>
+                                        <th>CASE
+                                        </th>
+                                        <th>Time
+                                        </th>
+                                        <th>Date
+                                        </th>
+                                        <th>Description
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Montería</td>
+                                        <td>Colombia</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Birmingham</td>
+                                        <td>United Kingdom</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Bangalore</td>
+                                        <td>India</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Tokyo</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Kuala Lumpur</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>6</td>
+                                        <td>Rio de Janeiro</td>
+                                        <td>Brazil</td>
+                                        <td>South America</td>
+                                    </tr>
+                                    <tr>
+                                        <td>7</td>
+                                        <td>Ipoh</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>8</td>
+                                        <td>Tawau</td>
+                                        <td>Malaysia</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>9</td>
+                                        <td>Hiroshima</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10</td>
+                                        <td>Cannes</td>
+                                        <td>France</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>11</td>
+                                        <td>London</td>
+                                        <td>United Kingdom</td>
+                                        <td>Europe</td>
+                                    </tr>
+                                    <tr>
+                                        <td>12</td>
+                                        <td>Saku</td>
+                                        <td>Japan</td>
+                                        <td>Asia</td>
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>    
+            
+        </div>   
+
+        <div class="wrapper" >
+
+                <nav id="sidebar">
+                <ul class="list-unstyled components">
+                    
+                    <li class="active">
+                        <a href="#homeSubmenu" data-toggle="modal" data-target="#myModal" aria-expanded="false" class="dropdown-toggle">Data Bank</a>
+                       
+                    </li>
+                    <li>
+                         <a href="#" data-toggle="modal" data-target="#myModal">My DB</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu"  data-toggle="modal" data-target="#myModal" aria-expanded="false" class="dropdown-toggle">Shared</a>
+                    </li>
+                    
+                </ul>
+
+            </nav>
+        </div>
+    
+    </div> 
+
+    <!-- Modal -->  
+                 
+    <div class="container">
+            
+            <!-- Trigger the modal with a button -->
+            <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
+
+
+            <div class="modal fade" id="myModal" role="dialog">
+              <div class="modal-dialog">
+              
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit Access Rights</h4>
+                  </div>
+                  <div class="modal-body">
+                        <form>
+                                <div class="form-group row">
+                                  <label for="staticEmail" class="col-sm-2 col-form-label">User</label>
+                                  <div class="col-sm-10">
+                                    <input type="text"  class="form-control" id="staticEmail">
+                                  </div>
+                                </div>
+
+                                <div class="form-group row">
+                                        <label for="staticEmail" class="col-sm-2 col-form-label">Case</label>
+                                        <div class="col-sm-10">
+                                          <input type="text"  class="form-control" id="staticEmail">
+                                        </div>
+                                </div>
+                                
+                                
+                        
+                        </form>        
+                  </div>
+                  <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Close</button> -->
+                    <button type="button" class="btn btn-default"  onclick="openForm()">Remove</button>
+                    <button type="button" class="btn btn-default" >Add</button>
+                  </div>
+                </div>
+                
+              </div>
+            </div>
+            
+          </div>
+          <button type="button" class="btn btn-default" style="margin-top:90%"  onclick="openForm()">Remove</button>
+          <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                  <h1>My Account</h1>
+              
+                  <!-- <label for="email"><b>Email</b></label>
+                  <input type="text" placeholder="Enter Email" name="email" required>
+              
+                  <label for="psw"><b>Password</b></label>
+                  <input type="password" placeholder="Enter Password" name="psw" required> -->
+              
+                  <button type="submit" class="btn" onclick="closeForm()">Change Password</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Log out</button>
+                </form>
+              </div>
+        
+          <script>
+                function openForm() {
+                 
+                  document.getElementById("myForm").style.display = "block";
+                }
+                
+                function closeForm() {
+                  document.getElementById("myForm").style.display = "none";
+                }
+                </script>
+
+</body>
+</html> 
